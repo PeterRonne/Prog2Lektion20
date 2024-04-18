@@ -6,17 +6,10 @@ import opgave01.models.pizzas.PepperoniPizza;
 import opgave01.models.pizzas.Pizza;
 
 public class Pizzeria {
+    PizzaFactory pizzaFactory = new PizzaFactory();
+
     public Pizza orderPizza(String type) {
-        Pizza pizza;
-        if (type.equals("cheese")) {
-            pizza = new CheesePizza();
-        } else if(type.equals("greek")) {
-            pizza = new GreekPizza();
-        } else if (type.equals("pepperoni")) {
-            pizza = new PepperoniPizza();
-        } else {
-            return null;
-        }
+        Pizza pizza = pizzaFactory.createPizza(type);
         pizza.prepare();
         pizza.bake();
         pizza.cut();

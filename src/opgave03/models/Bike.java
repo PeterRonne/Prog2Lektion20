@@ -11,4 +11,9 @@ public class Bike {
     public Bike(List<Part> parts) {
         this.parts = parts;
     }
+
+    @Override
+    public String toString() {
+        return parts.toString();
+    }
 }
